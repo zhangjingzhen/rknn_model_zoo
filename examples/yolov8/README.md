@@ -100,6 +100,28 @@ python yolov8.py --model_path <rknn_model> --target <TARGET_PLATFORM> --img_show
 
 - `<pt_model / onnx_model / rknn_model>`: Specify the model path.
 
+### 5.1 PC simulator inference (no development board)
+
+`python/yolov8_simulator.py` builds the ONNX model and runs inference with the
+RKNN-Toolkit2 simulator on an x86_64 Linux PC. It does not use ADB, a device ID,
+or a Rockchip development board.
+
+```shell
+conda activate rknn-toolkit2
+cd examples/yolov8/python
+
+# FP16 simulator inference (default)
+python yolov8_simulator.py
+
+# INT8 simulator inference and optionally export the built RKNN model
+python yolov8_simulator.py --quantize \
+  --export-rknn ../model/yolov8n-rk3588-int8.rknn
+```
+
+The default input is `model/bus.jpg`, and the annotated result is saved as
+`result_simulator.jpg`. The optimized `model/yolov8n.onnx` model must be
+downloaded first with `model/download_model.sh`.
+
 
 
 ## 6. Android Demo

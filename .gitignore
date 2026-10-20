@@ -44,6 +44,7 @@ datasets/COCO/try_load.py
 common/utils/run_and_gen_result.py
 common/utils/update_driver.py
 result/
+/examples/yolov8/result_simulator.jpg
 *DS_Store*
 
 
